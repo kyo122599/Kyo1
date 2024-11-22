@@ -1,0 +1,128 @@
+
+
+/* Encabezado fijo */
+.encabezado-fijo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom right, rgba(28, 28, 28, 0.9), rgba(100, 100, 100, 0.9), rgba(192, 57, 43, 0.8)); /* Fondo degradado con tres colores */
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column; /* Cambiar a columna para que el título y el menú estén en vertical */
+    align-items: center; /* Centrar el contenido */
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.titulo-container {
+    display: flex;
+    align-items: center; /* Centra verticalmente el icono y el texto */
+    margin-bottom: 5px; /* Espacio entre el título y el subtítulo */
+}
+
+.icono-lateral {
+    color: #9b59b6; /* Color morado para los iconos */
+    margin: 0 10px; /* Espacio entre iconos y título */
+}
+
+.titulo {
+    color: #ecf0f1; /* Texto gris claro */
+    font-size: 24px;
+}
+
+.subtitulo {
+    color: #ecf0f1; /* Color gris claro */
+    font-size: 16px;
+    margin-bottom: 5px; /* Espacio entre subtítulo y iconos */
+}
+
+.iconos-subtitulo {
+    display: flex; /* Usar flex para alinear iconos */
+    justify-content: space-between; /* Espacio entre iconos */
+    width: 100%; /* Ocupa el ancho completo */
+    max-width: 400px; /* Establecer un ancho máximo */
+    margin: 0 auto 10px; /* Centrar horizontalmente */
+    align-items: center; /* Alinear verticalmente los iconos y el subtítulo */
+}
+
+.iconos-subtitulo i {
+    color: #9b59b6; /* Color morado para los iconos */
+    margin-top: -5px; /* Ajustar la posición vertical de los iconos */
+}
+
+/* ... resto del CSS ... */
+
+.menu-navegacion ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-navegacion a {
+    text-decoration: none;
+    color: #ecf0f1; /* Color del texto */
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.menu-navegacion a:hover {
+    background-color: rgba(231, 76, 60, 0.8); /* Color al pasar el mouse */
+    transform: scale(1.05);
+}
+
+.contenido {
+    padding: 20px;
+    margin-top: 100px; /* Ajustar margen superior para evitar solapamiento con el encabezado */
+}
+
+/* Estilo para el botón del menú */
+.menu-boton {
+    display: none; /* Ocultar en pantallas grandes */
+    font-size: 24px;
+    background-color: rgba(192, 57, 43, 0.9); /* Color de fondo del botón */
+    border: none;
+    color: #ecf0f1; /* Color del texto */
+    cursor: pointer;
+    padding: 10px 15px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.menu-boton:hover {
+    background-color: rgba(231, 76, 60, 1); /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Estilos responsive para dispositivos pequeños */
+@media (max-width: 768px) {
+    .menu-boton {
+        display: block; /* Mostrar botón en pantallas pequeñas */
+    }
+
+    .menu-navegacion {
+        display: none; /* Ocultar menú inicialmente */
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(to bottom right, rgba(28, 28, 28, 0.9), rgba(100, 100, 100, 0.9), rgba(192, 57, 43, 0.8)); /* Fondo degradado con tres colores */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    .menu-navegacion.show {
+        display: flex; /* Mostrar el menú al activarse */
+    }
+
+    .menu-navegacion ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

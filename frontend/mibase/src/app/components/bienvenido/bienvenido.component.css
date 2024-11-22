@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, rgba(28, 28, 28, 0.9), rgba(100, 100, 100, 0.9), rgba(192, 57, 43, 0.8)); /* Fondo degradado con tres colores */
+}
+
+.anuncio-bienvenida {
+    background: rgba(44, 62, 80, 0.95); /* Azul oscuro con transparencia */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding: 60px 40px;
+    width: 100%;
+    max-width: 700px;
+    color: #ecf0f1; /* Texto gris claro */
+    animation: entrada 1s ease;
+    border: 2px solid rgba(192, 57, 43, 0.8); /* Borde rojo metálico */
+}
+
+.anuncio-bienvenida h1 {
+    font-size: 2.8em; /* Tamaño del encabezado aumentado */
+    margin: 0;
+    font-weight: bold;
+    color: #e74c3c; /* Rojo para destacar */
+    animation: brillo 2s ease infinite;
+}
+
+.anuncio-bienvenida p {
+    font-size: 1.6em;
+    margin-top: 15px;
+}
+
+@keyframes entrada {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes brillo {
+    0%, 100% {
+        text-shadow: 0 0 8px rgba(231, 76, 60, 0.7), 0 0 15px rgba(192, 57, 43, 1); /* Efecto de brillo rojo */
+    }
+    50% {
+        text-shadow: 0 0 8px rgba(236, 240, 241, 0.7), 0 0 20px rgba(44, 62, 80, 1); /* Cambio a gris claro */
+    }
+}

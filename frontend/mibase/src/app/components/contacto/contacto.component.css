@@ -1,0 +1,69 @@
+.contacto {
+    background: rgba(44, 62, 80, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    padding: 30px 15px;
+    color: #ecf0f1;
+    animation: entrada 1s ease;
+    max-width: 500px;
+    margin: 60px auto; /* Espacio superior aumentado */
+}
+
+.contacto h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #e74c3c;
+}
+
+.contacto p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.contacto label {
+    margin-top: 5px;
+    font-size: 1em;
+}
+
+.contacto input, .contacto textarea {
+    width: 90%;
+    max-width: 350px;
+    padding: 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.contacto button {
+    margin-top: 15px;
+    padding: 8px 15px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.contacto button:hover {
+    background: #c0392b;
+}
+
+@keyframes entrada {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

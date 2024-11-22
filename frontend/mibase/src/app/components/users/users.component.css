@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(to bottom right, rgba(28, 28, 28, 0.9), rgba(100, 100, 100, 0.9), rgba(192, 57, 43, 0.8));
+    font-family: Arial, sans-serif;
+}
+
+.expediente {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: rgba(44, 62, 80, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    color: #ecf0f1;
+    text-align: justify; /* Justifica todo el contenido del expediente */
+}
+
+.expediente h2 {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
+}
+
+.contenido-usuario {
+    display: flex;
+    align-items: center;
+}
+
+.foto-usuario {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(192, 57, 43, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+}
+
+.informacion-usuario {
+    flex: 1;
+}
+
+.informacion-usuario h3 {
+    margin: 0;
+    color: #e74c3c;
+    font-size: 1.6em;
+}
+
+.informacion-usuario p {
+    margin: 5px 0;
+    color: #ecf0f1;
+    text-align: justify; /* Justifica cada párrafo de información */
+}
+
+.informacion-usuario h4 {
+    margin-top: 15px;
+    color: #e74c3c;
+    font-size: 1.3em;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .contenido-usuario {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foto-usuario {
+        margin-bottom: 15px;
+    }
+}
