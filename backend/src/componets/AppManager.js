@@ -12,7 +12,7 @@ const DBManager = require('./DBManager'); // Administrador de BD
 const Router = require('../routes/router');
 
 // Modelos
-const UsuariosModel = require('../models/UsuariosModel');
+const UsuariosModel = require('../models/usuariosModel'); // Asegúrate de que el nombre coincida con el archivo
 const VehiculosModel = require('../models/VehiculosModel'); // Modelo de vehículos
 
 // Controladores
@@ -39,18 +39,20 @@ class AppManager {
         this.#appExpress.use(bodyParser.json());
         this.#appExpress.use(bodyParser.urlencoded({ extended: true }));
         this.#appExpress.use(morgan('dev'));
-        //await this.#prepareDataBase(this.#runningConfType.db);
+        // await this.#prepareDataBase(this.#runningConfType.db);
         await this.#prepareRouting();
     }
 
-   /* #prepareDataBase = async (dbConfig) => {
+    /* 
+    #prepareDataBase = async (dbConfig) => {
         const oDBMan = new DBManager();
         await oDBMan.prepareDataBase(dbConfig);
 
         // Definir los modelos con la conexión
         await UsuariosModel.defineModel(oDBMan.getConnection());
         await VehiculosModel.defineModel(oDBMan.getConnection()); // Definir el modelo de vehículos
-    }*/
+    }
+    */
 
     #prepareRouting = async () => {
         const oRouter = new Router();
@@ -60,7 +62,7 @@ class AppManager {
 
         // Adjuntar los controladores al enrutador
         oRouter.attachControllers(oUsuariosControllers, oVehiculosControllers);
-        
+
         oRouter.prepareRouting();
         this.#appExpress.use('/api', oRouter.getRouter());
     }

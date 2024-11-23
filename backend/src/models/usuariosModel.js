@@ -9,30 +9,29 @@ class UsuariosModel {
         this.#orientDB = await orientDB;
     }
 
-    // Fetch all users
+    // Obtener todos los usuarios
     fetchUsersAll = async () => {
-        let session = await this.#orientDB.pool.acquire();
-        let data = await session.select().from('cliente').all();
+        const session = await this.#orientDB.pool.acquire();
+        const data = await session.select().from('cliente').all();
         session.close();
         return data;
     }
 
+    // Crear un usuario
     createUsers = async (object) => {
-        let session = await this.#orientDB.pool.acquire();
-        let idRecord = await session.create('Vertex', 'cliente').set(object).one();
+        const session = await this.#orientDB.pool.acquire();
+        const idRecord = await session.create('Vertex', 'cliente').set(object).one();
+        session.close();
         return idRecord;
-
-
     }
 
-    // Update a user by IDz
-    updateUsers = async (id_cleinte, object) => {
-        let session = await this.#orientDB.pool.acquire();
+    // Actualizar un usuario
+    updateUsers = async (id_cliente, object) => {
+        const session = await this.#orientDB.pool.acquire();
         try {
-            // Realizamos la actualización del usuario con el campo id_usuario
-            let result = await session.update('cliente')
+            const result = await session.update('cliente')
                 .set(object)
-                .where({ 'id_cliente': id_cleinte}) // Usamos id_usuario en lugar de @rid
+                .where({ id_cliente })
                 .return('AFTER')
                 .one();
 
@@ -40,16 +39,17 @@ class UsuariosModel {
         } catch (error) {
             throw new Error('Error actualizando el cliente');
         } finally {
-            session.close(); // Cierra la sesión de OrientDB
+            session.close();
         }
     };
 
-    // Delete a user by ID
-    deleteUser = async(id_cliente)=>{
-        let session = await this.#orientDB.pool.acquire();
-        let deletedCount = await session.delete('Vertex', 'cliente').where({ id_cliente }).one();
-         return deletedCount; 
-    }//usariomodelos
+    // Eliminar un usuario
+    deleteUser = async (id_cliente) => {
+        const session = await this.#orientDB.pool.acquire();
+        const deletedCount = await session.delete('Vertex', 'cliente').where({ id_cliente }).one();
+        session.close();
+        return deletedCount;
+    };
 }
 
 module.exports = new UsuariosModel();
