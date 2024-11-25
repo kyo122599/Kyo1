@@ -1,0 +1,17 @@
+{
+    "DevConfig":{
+        "service":{
+            "host":"localhost",
+            "port":3000
+        },
+    "db":{
+        "host":"localhost",
+        "name":"Refaccionaria_Automotriz",
+            "port":2424,
+            "user":"root",
+            "password":"albedo",
+            "rootUser":"root",
+            "rootPassword":"albedo"
+    }
+}
+}
